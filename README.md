@@ -1,3 +1,4 @@
+Please visit the link to view the visualization https://satgobi-g.github.io/Satgobi-g.io/Index.html
 # Creating 3d Data Visualization- D3 Scatter Plot by using A-Frame
 
 ### Introduction
