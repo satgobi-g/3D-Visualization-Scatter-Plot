@@ -4,7 +4,7 @@
 	<!---Below Code is for Inserting the Page title-->
 	<title>3D Visualization</title>
 	<!---Integrating Aframe into the HTML Page-->
-	<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+	<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
 	<!--Below Script help to move the objects around 360 degree -->
 	<script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/master/dist/aframe-orbit-controls-component.min.js"></script>
 	<!-- Below Script help to control the objects using Keyboard or Mouse Keys -->
@@ -133,7 +133,7 @@
 
 			<a-entity camera
 					  id="camera_look"
-					  active="false"
+					  active="true"
 					  position="0 2 6"
 					  look-controls
 					  wasd-controls="fly:true"
@@ -164,13 +164,13 @@
 		function addEventListeners() {
 
 			document.querySelector('a-scene').addEventListener('enter-vr', function (evt) {
-				document.querySelector('#camera_orbit').setAttribute('camera', 'active', false);
+				document.querySelector('#camera_orbit').setAttribute('camera', 'active', true);
 				document.querySelector('#camera_look').setAttribute('camera', 'active', true);
 			});
 
 			document.querySelector('a-scene').addEventListener('exit-vr', function (evt) {
 				document.querySelector('#camera_orbit').setAttribute('camera', 'active', true);
-				document.querySelector('#camera_look').setAttribute('camera', 'active', false);
+				document.querySelector('#camera_look').setAttribute('camera', 'active', true);
 			});
 		} // end addEventListeners()
 
