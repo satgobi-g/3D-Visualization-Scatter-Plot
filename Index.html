@@ -97,21 +97,8 @@
 						   pointsprite="img/disc.png"
 						   scale="6 2 6" position="0 0 0" rotation="0 0 0"></a-scatterplot>
 
-			<!-- a second scatterplot directly on top, so we can show two different data sets -->
-			<a-scatterplot src="sample-data/test_hdc.pba.json"
-						   title="Footprint"
-						   x="y" y="z" z="x" s="s" val="z"
-						   valfill="-32768, 4506"
-						   relationship="xz"
-						   numdecimalplaces="0"
-						   nochrome="true"
-						   colorpreset="hot"
-						   pointcolor="rgb(127,22,177)"
-						   pointsize="0.25"
-						   scale="6 2 6" position="0 0 0" rotation="0 0 0 "></a-scatterplot>
-
 			<!-- Target for orbit camera. You can also use the scatterplot, but the scatterplot is drawn with the lower-left corner at its (0,0,0) position, not centered, so the oribt will orbit around the origin not the middle of the graph. We have to play with the position value on this target a bit to get a nice lookAt target for the orbit cam. Note that this cannot be a sub-entity of the main a-scatterplot entity, since that messes up the positioning-->
-			<a-entity id="target" geometry="primitive: box" scale="0.1 0.1 0.1" position="3 0 2" material="color: #cc0000; visible:false">
+			<a-entity id="target" geometry="primitive: box" scale="0.1 0.1 0.1" position="3 0 2" material="color: #cc0000; visible:true">
 
 			</a-entity>
 
@@ -128,7 +115,7 @@
 			<a-entity camera
 					  id="camera_orbit"
 					  position="0 2 6"
-					  active="true"
+					  active="false"
 					  orbit-controls="
                 autoRotate: false;
                 target: #target;
@@ -143,7 +130,7 @@
 
 			<a-entity camera
 					  id="camera_look"
-					  active="true"
+					  active="false"
 					  position="0 2 6"
 					  look-controls
 					  wasd-controls="fly:true"
