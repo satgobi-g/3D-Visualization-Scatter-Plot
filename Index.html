@@ -14,8 +14,6 @@
 	<!-- Script of Aframe scatterplot Visualization -->
 	<script src="https://cdn.rawgit.com/zcanter/aframe-scatterplot/master/dist/a-scatterplot.min.js"></script>
 
-	<script src="https://unpkg.com/aframe-charts-component/dist/aframe-charts-component.min.js"></script>
-
 	<style>
 		@import url(https://fonts.googleapis.com/css?family=Raleway);
 
@@ -77,11 +75,7 @@
 		</a-entity>
 
 
-		<a-entity position="2 10 14" rotation="-30 15 0">
-			<a-camera position="3 -1 4" rotation="0 -1 0">
-				<a-cursor></a-cursor>
-			</a-camera>
-		</a-entity>
+		<a-entity rotation="0 90 0">
 			<!-- rotate these three so that the Z axis, which the a-scatterplot uses for data height, points toward the a-frame sky -->
 
 			<a-scatterplot src="url(sample-data/Carsmockupdata.json)"
@@ -91,16 +85,26 @@
 						   xlabel="Sales" ylabel="Quantity" zlabel="Total Sales"
 						   numdecimalplaces="0"
 						   ycage="true"
-						   showFloor="true" floorMaterialParams="color: #fff; opacity:0.2; transparent:true; "
-						  showcolorbar="true"
-			colorpreset="jet" textColor="#EEE"
-			
-			pointsize="6"
+						   showFloor="true" floorMaterialParams="color: #fff; opacity:0.1; transparent:true; "
+						   showcolorbar="false"
+						   colorpreset="terrain" textColor="#EEE"
+						   pointcolor="rgb(6,204,240)"
+						   pointsize="0.5"
 						   pointsprite="img/disc.png"
 						   scale="6 2 6" position="0 0 0" rotation="0 0 0"></a-scatterplot>
 
 			<!-- a second scatterplot directly on top, so we can show two different data sets -->
-			
+			<a-scatterplot src="sample-data/test_hdc.pba.json"
+						   title="Footprint"
+						   x="y" y="z" z="x" s="s" val="z"
+						   valfill="-32768, 4506"
+						   relationship="xz"
+						   numdecimalplaces="0"
+						   nochrome="true"
+						   colorpreset="hot"
+						   pointcolor="rgb(127,22,177)"
+						   pointsize="0.25"
+						   scale="6 2 6" position="0 0 0" rotation="0 0 0 "></a-scatterplot>
 
 			<!-- Target for orbit camera. You can also use the scatterplot, but the scatterplot is drawn with the lower-left corner at its (0,0,0) position, not centered, so the oribt will orbit around the origin not the middle of the graph. We have to play with the position value on this target a bit to get a nice lookAt target for the orbit cam. Note that this cannot be a sub-entity of the main a-scatterplot entity, since that messes up the positioning-->
 			<a-entity id="target" geometry="primitive: box" scale="0.1 0.1 0.1" position="3 0 2" material="color: #cc0000; visible:false">
@@ -120,7 +124,7 @@
 			<a-entity camera
 					  id="camera_orbit"
 					  position="0 2 6"
-					  active="false"
+					  active="true"
 					  orbit-controls="
                 autoRotate: false;
                 target: #target;
@@ -135,14 +139,14 @@
 
 			<a-entity camera
 					  id="camera_look"
-					  active="true"
+					  active="false"
 					  position="0 2 6"
 					  look-controls
 					  wasd-controls="fly:true"
 					  mouse-cursor="">
 			</a-entity>
 
-	</a-scene>
+</a-scene>
 
 	<div id="loading">
 		<h1>Preparing scene...<br /><br /></h1>
@@ -166,13 +170,13 @@
 		function addEventListeners() {
 
 			document.querySelector('a-scene').addEventListener('enter-vr', function (evt) {
-				document.querySelector('#camera_orbit').setAttribute('camera', 'active', true);
+				document.querySelector('#camera_orbit').setAttribute('camera', 'active', false);
 				document.querySelector('#camera_look').setAttribute('camera', 'active', true);
 			});
 
 			document.querySelector('a-scene').addEventListener('exit-vr', function (evt) {
 				document.querySelector('#camera_orbit').setAttribute('camera', 'active', true);
-				document.querySelector('#camera_look').setAttribute('camera', 'active', true);
+				document.querySelector('#camera_look').setAttribute('camera', 'active', false);
 			});
 		} // end addEventListeners()
 
