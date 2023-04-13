@@ -1,38 +1,206 @@
 [
- {
-  "Product": "Honda City",
-  "Qnty": 10,
-  "Sales": 7,
-  "City": "Chennai"
- },
- {
-  "Product": "Honda City",
-  "Qnty": 7,
-  "Sales": "5",
-  "City": "Coimbatore"
- },
- {
-  "Product": "Honda City",
-  "Qnty": 5,
-  "Sales": 3,
-  "City": "Trichy"
- },
- {
-  "Product": "Honda Civic",
-  "Qnty": 12,
-  "Sales": 10,
-  "City": "Chennai"
- },
- {
-  "Product": "Honda Civic",
-  "Qnty": 10,
-  "Sales": 8,
-  "City": "Coimbatore"
- },
- {
-  "Product": "Honda Civic",
-  "Qnty": 14,
-  "Sales": 13,
-  "City": "Trichy"
- }
+  {
+    "Product": 1,
+    "Qnty": 10,
+    "Sales": 7,
+    "City": 2
+  },
+  {
+    "Product": 4,
+    "Qnty": 7,
+    "Sales": 5,
+    "City": 10
+  },
+  {
+    "Product": 7,
+    "Qnty": 5,
+    "Sales": 3,
+    "City": 8
+  },
+  {
+    "Product": 9,
+    "Qnty": 12,
+    "Sales": 10,
+    "City": 11
+  },
+  {
+    "Product": 8,
+    "Qnty": 10,
+    "Sales": 8,
+    "City": 15
+  },
+  {
+    "Product": 10,
+    "Qnty": 14,
+    "Sales": 13,
+    "City": 2
+  },
+  {
+    "Product": 12,
+    "Qnty": 10,
+    "Sales": 7,
+    "City": 8
+  },
+  {
+    "Product": 20,
+    "Qnty": 7,
+    "Sales": 6,
+    "City": 22
+  },
+  {
+    "Product": 24,
+    "Qnty": 5,
+    "Sales": 7,
+    "City": 26
+  },
+  {
+    "Product": 11,
+    "Qnty": 1,
+    "Sales": 15,
+    "City": 18
+  },
+  {
+    "Product": 17,
+    "Qnty": 10,
+    "Sales": 8,
+    "City": 19
+  },
+  {
+    "Product": 15,
+    "Qnty": 14,
+    "Sales": 13,
+    "City": 10
+  },
+  {
+    "Product": 1,
+    "Qnty": 10,
+    "Sales": 4,
+    "City": 2
+  },
+  {
+    "Product": 4,
+    "Qnty": 7,
+    "Sales": 1,
+    "City": 10
+  },
+  {
+    "Product": 7,
+    "Qnty": 5,
+    "Sales": 2,
+    "City": 8
+  },
+  {
+    "Product": 9,
+    "Qnty": 12,
+    "Sales": 40,
+    "City": 11
+  },
+  {
+    "Product": 8,
+    "Qnty": 10,
+    "Sales": 38,
+    "City": 15
+  },
+  {
+    "Product": 10,
+    "Qnty": 14,
+    "Sales": 43,
+    "City": 2
+  },
+  {
+    "Product": 13,
+    "Qnty": 10,
+    "Sales": 37,
+    "City": 18
+  },
+  {
+    "Product": 20,
+    "Qnty": 7,
+    "Sales": 26,
+    "City": 22
+  },
+  {
+    "Product": 10,
+    "Qnty": 15,
+    "Sales": 10,
+    "City": 10
+  },
+  {
+    "Product": 40,
+    "Qnty": 40,
+    "Sales": 45,
+    "City": 40
+  },
+  {
+    "Product": 40,
+    "Qnty": 10,
+    "Sales": 28,
+    "City": 20
+  },
+  {
+    "Product": 20,
+    "Qnty": 14,
+    "Sales": 23,
+    "City": 30
+  },
+  {
+    "Product": 14,
+    "Qnty": 9,
+    "Sales": 6,
+    "City": 10
+  },
+  {
+    "Product": 2,
+    "Qnty": 2,
+    "Sales": 2,
+    "City": 2
+  },
+  {
+    "Product": 1,
+    "Qnty": 43,
+    "Sales": 2,
+    "City": 1
+  },
+  {
+    "Product": 2,
+    "Qnty": 42,
+    "Sales": 3,
+    "City": 1
+  },
+  {
+    "Product": 3,
+    "Qnty": 40,
+    "Sales": 4,
+    "City": 1
+  },
+  {
+    "Product": 4,
+    "Qnty": 29,
+    "Sales": 5,
+    "City": 2
+  },
+  {
+    "Product": 6,
+    "Qnty": 31,
+    "Sales": 7,
+    "City": 2
+  },
+  {
+    "Product": 7,
+    "Qnty": 32,
+    "Sales": 9,
+    "City": 1
+  },
+  {
+    "Product": 9,
+    "Qnty": 20,
+    "Sales": 10,
+    "City": 1
+  },
+  {
+    "Product": 10,
+    "Qnty": 10,
+    "Sales": 8,
+    "City": 1
+  }
 ]
