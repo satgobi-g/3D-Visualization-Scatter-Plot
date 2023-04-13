@@ -89,16 +89,19 @@
 						   xlabel="Sales" ylabel="Quantity" zlabel="Total Sales"
 						   numdecimalplaces="0"
 						   ycage="true"
-						   showFloor="true" floorMaterialParams="color: #fff; opacity:0.1; transparent:true; "
-						   showcolorbar="true"
+						   showFloor="true" floorMaterialParams="color: #fff; opacity:0.2; transparent:true; "
+						  showcolorbar="true"
 			colorpreset="jet" textColor="#EEE"
 			
 			pointsize="6"
 						   pointsprite="img/disc.png"
 						   scale="6 2 6" position="0 0 0" rotation="0 0 0"></a-scatterplot>
 
+			<!-- a second scatterplot directly on top, so we can show two different data sets -->
+			
+
 			<!-- Target for orbit camera. You can also use the scatterplot, but the scatterplot is drawn with the lower-left corner at its (0,0,0) position, not centered, so the oribt will orbit around the origin not the middle of the graph. We have to play with the position value on this target a bit to get a nice lookAt target for the orbit cam. Note that this cannot be a sub-entity of the main a-scatterplot entity, since that messes up the positioning-->
-			<a-entity id="target" geometry="primitive: box" scale="0.1 0.1 0.1" position="3 0 2" material="color: #cc0000; visible:true">
+			<a-entity id="target" geometry="primitive: box" scale="0.1 0.1 0.1" position="3 0 2" material="color: #cc0000; visible:false">
 
 			</a-entity>
 
