@@ -14,8 +14,9 @@
 	<!-- Script of Aframe scatterplot Visualization -->
 	<script src="https://cdn.rawgit.com/zcanter/aframe-scatterplot/master/dist/a-scatterplot.min.js"></script>
 
-<style>
+	<style>
 		@import url(https://fonts.googleapis.com/css?family=Raleway);
+
 		#loading {
 			width: 100%;
 			height: 100%;
@@ -55,73 +56,76 @@
 	</style>
 
 </head>
- 
+
 <body style="background-color:#000">
-<a-scene>
+	<a-scene>
 
 
 
-	<a-assets>
-		<img id="grid" src="img/grid.png" style="display: none">
-	</a-assets>
+		<a-assets>
+			<img id="grid" src="img/grid.png" style="display: none">
+		</a-assets>
 
-	<a-sky color="rgb(155,155,155)"></a-sky>
+		<a-sky color="rgb(155,155,155)"></a-sky>
 
-	<!-- Holodeck-style skybox -->
-	<a-entity
-		geometry="primitive: box; depth: 100; height: 100; width: 200"
-		material="metalness: 0; src: #grid; side: double; repeat: 25 25; roughness: 1"
-		position="0 0 0">
-	</a-entity>
-	
+		<!-- Holodeck-style skybox -->
+		<a-entity geometry="primitive: box; depth: 100; height: 100; width: 200"
+				  material="metalness: 0; src: #grid; side: double; repeat: 25 25; roughness: 1"
+				  position="0 0 0">
+		</a-entity>
 
-	<a-entity rotation="0 90 0"><!-- rotate these three so that the Z axis, which the a-scatterplot uses for data height, points toward the a-frame sky -->
-		 
-		<a-scatterplot 
-			src="url(sample-data/Carsmockupdata.json)"
-			title=" 3D Visualization" 
-			x="Sales"  y="Qnty" z="Sales" s="Sales" val="Qnty"
-			valfill="-32768, 4506" relationship="xz"
-			xlabel="Sales" ylabel="Quantity" zlabel="Total Sales"
-			numdecimalplaces="0"
-			ycage="true"
-			showFloor="true" floorMaterialParams="color: #fff; opacity:0.1; transparent:true; " 
-			showcolorbar="false"
-			colorpreset="terrain" textColor="#EEE"
-			pointcolor="rgb(6,204,240)"
-			pointsize="0.5" 
-			pointsprite="img/disc.png"
-			scale="6 2 6" position="0 0 0" rotation="0 0 0"></a-scatterplot>
 
-		<!-- a second scatterplot directly on top, so we can show two different data sets -->
-		<a-scatterplot
-			src="sample-data/test_hdc.pba.json"
-			title="Footprint"
-			x="y"  y="z" z="x" s="s" val="z"
-			valfill="-32768, 4506"
-			relationship="xz"
-			numdecimalplaces="0"
-			nochrome="true"
-			colorpreset="hot"
-			pointcolor="rgb(127,22,177)"
-			pointsize="0.25"
-			scale="6 2 6" position="0 0 0" rotation="0 0 0 "
-			></a-scatterplot>
+		<a-entity rotation="0 90 0">
+			<!-- rotate these three so that the Z axis, which the a-scatterplot uses for data height, points toward the a-frame sky -->
 
-		<!-- Target for orbit camera. You can also use the scatterplot, but the scatterplot is drawn with the lower-left corner at its (0,0,0) position, not centered, so the oribt will orbit around the origin not the middle of the graph. We have to play with the position value on this target a bit to get a nice lookAt target for the orbit cam. Note that this cannot be a sub-entity of the main a-scatterplot entity, since that messes up the positioning-->
-		 <a-entity id="target" geometry="primitive: box" scale="0.1 0.1 0.1" position="3 0 2" material="color: #cc0000; visible:false">
+			<a-scatterplot src="url(sample-data/Carsmockupdata.json)"
+						   title=" 3D Visualization"
+						   x="Sales" y="Qnty" z="Sales" s="Sales" val="Qnty"
+						   valfill="-32768, 4506" relationship="xz"
+						   xlabel="Sales" ylabel="Quantity" zlabel="Total Sales"
+						   numdecimalplaces="0"
+						   ycage="true"
+						   showFloor="true" floorMaterialParams="color: #fff; opacity:0.1; transparent:true; "
+						   showcolorbar="false"
+						   colorpreset="terrain" textColor="#EEE"
+						   pointcolor="rgb(6,204,240)"
+						   pointsize="0.5"
+						   pointsprite="img/disc.png"
+						   scale="6 2 6" position="0 0 0" rotation="0 0 0"></a-scatterplot>
 
-		 </a-entity>
+			<!-- a second scatterplot directly on top, so we can show two different data sets -->
+			<a-scatterplot src="sample-data/test_hdc.pba.json"
+						   title="Footprint"
+						   x="y" y="z" z="x" s="s" val="z"
+						   valfill="-32768, 4506"
+						   relationship="xz"
+						   numdecimalplaces="0"
+						   nochrome="true"
+						   colorpreset="hot"
+						   pointcolor="rgb(127,22,177)"
+						   pointsize="0.25"
+						   scale="6 2 6" position="0 0 0" rotation="0 0 0 "></a-scatterplot>
 
-	
-	
-	<!-- Set up two cameras, and switch to the look-controls camera when we go into VR mode. I tried adding and removing the orbit-controls but it doesn't properly implement the update() life cycle event, or at least didnt as of May 5 2017. -->
-		<a-entity
-            camera
-            id="camera_orbit"
-            position="0 2 6"
-			active="true"
-			orbit-controls="
+			<!-- Target for orbit camera. You can also use the scatterplot, but the scatterplot is drawn with the lower-left corner at its (0,0,0) position, not centered, so the oribt will orbit around the origin not the middle of the graph. We have to play with the position value on this target a bit to get a nice lookAt target for the orbit cam. Note that this cannot be a sub-entity of the main a-scatterplot entity, since that messes up the positioning-->
+			<a-entity id="target" geometry="primitive: box" scale="0.1 0.1 0.1" position="3 0 2" material="color: #cc0000; visible:false">
+
+			</a-entity>
+
+
+			<!-- GitHub Corner. -->
+			<a href="https://github.com/adrixp/aframe-charts-component" class="github-corner">
+				<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;">
+					<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+					<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+					<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+				</svg>
+			</a>
+			<!-- Set up two cameras, and switch to the look-controls camera when we go into VR mode. I tried adding and removing the orbit-controls but it doesn't properly implement the update() life cycle event, or at least didnt as of May 5 2017. -->
+			<a-entity camera
+					  id="camera_orbit"
+					  position="0 2 6"
+					  active="true"
+					  orbit-controls="
                 autoRotate: false;
                 target: #target;
                 enableDamping: true;
@@ -131,53 +135,52 @@
 				maxPolarAngle:1.85;
                 minDistance:1;
                 maxDistance:10;">
-		</a-entity>
-				
-		<a-entity
-			camera
-			id="camera_look"
-			active="false"
-			position="0 2 6"
-			look-controls
-			wasd-controls="fly:true" 
-			mouse-cursor="">
-		</a-entity>
+			</a-entity>
+
+			<a-entity camera
+					  id="camera_look"
+					  active="false"
+					  position="0 2 6"
+					  look-controls
+					  wasd-controls="fly:true"
+					  mouse-cursor="">
+			</a-entity>
 
 </a-scene>
 
-<div id="loading">
-	<h1>Preparing scene...<br/><br/></h1>
-</div>
-<script>
-	d3.select('a-assets').on("loaded", function(){
-		d3.select('#loading').transition().duration(2000).style('opacity', "0").remove();
-	});
-</script>
+	<div id="loading">
+		<h1>Preparing scene...<br /><br /></h1>
+	</div>
+	<script>
+		d3.select('a-assets').on("loaded", function () {
+			d3.select('#loading').transition().duration(2000).style('opacity', "0").remove();
+		});
+	</script>
 
 
-  <script>
-	/*
-	* Switch from the oribt- camera to the look-controls camera when we enter VR mode 
-	*/
-	document.addEventListener("DOMContentLoaded", function(event) {
-		var scene = document.querySelector('a-scene');
-		if (scene.hasLoaded) addEventListeners();
-		else scene.addEventListener( 'loaded', addEventListeners );
-	});
-	function addEventListeners() {
-		
-		document.querySelector('a-scene').addEventListener('enter-vr', function(evt){
-			document.querySelector('#camera_orbit').setAttribute('camera', 'active', false);
-			document.querySelector('#camera_look').setAttribute('camera', 'active', true);
+	<script>
+		/*
+		* Switch from the oribt- camera to the look-controls camera when we enter VR mode
+		*/
+		document.addEventListener("DOMContentLoaded", function (event) {
+			var scene = document.querySelector('a-scene');
+			if (scene.hasLoaded) addEventListeners();
+			else scene.addEventListener('loaded', addEventListeners);
 		});
-		
-		document.querySelector('a-scene').addEventListener('exit-vr', function(evt){
-			document.querySelector('#camera_orbit').setAttribute('camera', 'active', true);
-			document.querySelector('#camera_look').setAttribute('camera', 'active', false);
-		});
-	} // end addEventListeners()
-	
-  </script>
+		function addEventListeners() {
+
+			document.querySelector('a-scene').addEventListener('enter-vr', function (evt) {
+				document.querySelector('#camera_orbit').setAttribute('camera', 'active', false);
+				document.querySelector('#camera_look').setAttribute('camera', 'active', true);
+			});
+
+			document.querySelector('a-scene').addEventListener('exit-vr', function (evt) {
+				document.querySelector('#camera_orbit').setAttribute('camera', 'active', true);
+				document.querySelector('#camera_look').setAttribute('camera', 'active', false);
+			});
+		} // end addEventListeners()
+
+	</script>
 </body>
 
 </html>
