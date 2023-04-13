@@ -75,7 +75,11 @@
 		</a-entity>
 
 
-		<a-entity rotation="0 90 0">
+		<a-entity position="2 10 14" rotation="-30 15 0">
+			<a-camera position="3 -1 4" rotation="0 -1 0">
+				<a-cursor></a-cursor>
+			</a-camera>
+		</a-entity>
 			<!-- rotate these three so that the Z axis, which the a-scatterplot uses for data height, points toward the a-frame sky -->
 
 			<a-scatterplot src="url(sample-data/Carsmockupdata.json)"
@@ -124,9 +128,9 @@
 			<a-entity camera
 					  id="camera_orbit"
 					  position="0 2 6"
-					  active="true"
+					  active="false"
 					  orbit-controls="
-                autoRotate: true;
+                autoRotate: false;
                 target: #target;
                 enableDamping: true;
                 dampingFactor: 0.125;
@@ -139,14 +143,14 @@
 
 			<a-entity camera
 					  id="camera_look"
-					  active="true"
+					  active="false"
 					  position="0 2 6"
 					  look-controls
 					  wasd-controls="fly:true"
 					  mouse-cursor="">
 			</a-entity>
 
-</a-scene>
+	</a-scene>
 
 	<div id="loading">
 		<h1>Preparing scene...<br /><br /></h1>
